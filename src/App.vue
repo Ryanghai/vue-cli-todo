@@ -1,9 +1,9 @@
 <template>
   <div id="app">
-    <h1>{{updateTime}}MyTodoApp</h1>
+    <h1>{{ updateTime }}MyTodoApp</h1>
     <div>
       <label for="title">タイトル:</label>
-      <input type="text" v-model="title" placeholder="タイトル">
+      <input type="text" v-model="title" placeholder="タイトル" />
     </div>
     <div>
       <label for="body">内容:</label>
@@ -11,10 +11,12 @@
       <!-- v-model lists in list にデータを反映？ -->
     </div>
     <div>
-      <input type="submit" value="追加" @click="addList">
+      <input type="submit" value="追加" @click="addList" />
     </div>
-    <ul v-for="(list,i) in lists" v-bind:key="i">
-      <li>id: {{i}}, title: {{ list.title }}<button @click="deleteList(i)">削除</button> </li>
+    <ul v-for="(list, i) in lists" v-bind:key="i">
+      <li>
+        id: {{ i }}, title: {{ list.title }}, body: {{ list.body }}<button @click="deleteList(i)">削除</button>
+      </li>
     </ul>
     <!-- <pre>
       {{$data}}
@@ -25,28 +27,26 @@
 <script>
 export default {
   data: () => ({
-    lists: [
-    //  ここに入力した内容が入る
-    ],
-    title: '',
-    body: ''
+    lists: [],
+    title: "",
+    body: "",
   }),
   methods: {
-    addList: function(){
-      if(this.title === '' || this.body === '') return
-      this.lists.push({title: this.title, body: this.body})
-      this.title = ''
-      this.body = ''
+    addList: function() {
+      if (this.title === "" && this.body === "") return;
+      this.lists.push({ title: this.title, body: this.body });
+      this.title = "";
+      this.body = "";
     },
-    deleteList: function(i){
-      this.lists.splice(i,1)
-    }
-  }
+    deleteList: function(i) {
+      this.lists.splice(i, 1);
+    },
+  },
 };
 </script>
 
 <style>
-  #app h1{
-    text-align: center;
-  }
+#app h1 {
+  text-align: center;
+}
 </style>
