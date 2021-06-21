@@ -1,28 +1,52 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h1>{{updateTime}}MyTodoApp</h1>
+    <div>
+      <label for="title">タイトル:</label>
+      <input type="text" v-model="title" placeholder="タイトル">
+    </div>
+    <div>
+      <label for="body">内容:</label>
+      <textarea v-model="body" placeholder="内容"></textarea>
+      <!-- v-model lists in list にデータを反映？ -->
+    </div>
+    <div>
+      <input type="submit" value="追加" @click="addList">
+    </div>
+    <ul v-for="(list,i) in lists" v-bind:key="i">
+      <li>id: {{i}}, title: {{ list.title }}<button @click="deleteList(i)">削除</button> </li>
+    </ul>
+    <!-- <pre>
+      {{$data}}
+    </pre> -->
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  data: () => ({
+    lists: [
+    //  ここに入力した内容が入る
+    ],
+    title: '',
+    body: ''
+  }),
+  methods: {
+    addList: function(){
+      if(this.title === '' || this.body === '') return
+      this.lists.push({title: this.title, body: this.body})
+      this.title = ''
+      this.body = ''
+    },
+    deleteList: function(i){
+      this.lists.splice(i,1)
+    }
   }
-}
+};
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  #app h1{
+    text-align: center;
+  }
 </style>
