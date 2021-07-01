@@ -2,14 +2,19 @@
   <div id="app">
     <h1>{{ today() }} My Todos</h1>
     <div class="add_task">
-      <input type="text" v-model="body" placeholder="New Task" />
-      <input type="submit" value="+" @click="addList" />
+      <input
+        type="text"
+        v-model="body"
+        @keydown.enter="addList"
+        placeholder="New Task"
+      />
+      <input type="submit" value="+" :disabled="body === ''" @click="addList" />
     </div>
     <div class="tasks">
       <ul>
         <li v-for="(list, i) in lists" v-bind:key="i">
           <div class="text">
-            <input type="checkbox" v-model="list.done"/>
+            <input type="checkbox" v-model="list.done" />
             <span :class="list.done ? 'finished' : ''">
               {{ list.body }}
             </span>
@@ -30,7 +35,7 @@ export default {
   }),
   methods: {
     addList: function() {
-      if ( this.body === "") return;
+      if (this.body === "") return;
       this.lists.push({ body: this.body, done: false });
       // this.title = "";
       this.body = "";
@@ -40,22 +45,22 @@ export default {
     },
     today() {
       const today = new Date();
-      const date = (today.getMonth() + 1) + "/" + today.getDate();
+      const date = today.getMonth() + 1 + "/" + today.getDate();
       return date;
-    }
+    },
   },
 };
 </script>
 
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap');
+<style scoped>
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap");
 
 body {
   margin: 0;
 }
 
 #app {
-  background-color: #FFF5EB;
+  background-color: #fff5eb;
   margin: 0;
   padding: 0;
   height: 100vh;
@@ -63,9 +68,9 @@ body {
 }
 
 #app h1 {
-  color: #B2B8A3;
+  color: #b2b8a3;
   text-align: center;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   margin-top: 0;
   padding-top: 40px;
 }
@@ -73,15 +78,15 @@ body {
 input[type="text" i] {
   height: 20px;
   padding: 4px;
-  border: 1px solid #B2B8A3;
+  border: 1px solid #b2b8a3;
 }
 
 input[type="submit" i] {
   margin-left: 8px;
   padding: 1px 4px;
   border-width: 0px;
-  background-color: #B2B8A3;
-  cursor: pointer;
+  background-color: #b2b8a3;
+  cursor: auto;
 }
 
 .tasks {
@@ -106,12 +111,13 @@ input[type="submit" i] {
 .tasks li:first-child {
   padding-top: 12px;
 }
-button{
- opacity: 0;
+
+button {
+  opacity: 0;
 }
 
-.tasks li:hover button{
- opacity: 1;
+.tasks li:hover button {
+  opacity: 1;
 }
 
 .finished {
