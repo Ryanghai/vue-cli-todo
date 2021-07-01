@@ -97,10 +97,6 @@ input[type="submit" i] {
   list-style-type: none;
 }
 
-li button {
-  opacity: 0;
-}
-
 .tasks li {
   display: flex;
   justify-content: space-between;
