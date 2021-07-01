@@ -9,8 +9,8 @@
       <ul>
         <li v-for="(list, i) in lists" v-bind:key="i">
           <div class="text">
-            <input type="checkbox" v-model="lists.done"/>
-            <span :class="lists.done ? 'finished' : ''">
+            <input type="checkbox" v-model="list.done"/>
+            <span :class="list.done ? 'finished' : ''">
               {{ list.body }}
             </span>
           </div>
