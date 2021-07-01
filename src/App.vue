@@ -106,11 +106,12 @@ input[type="submit" i] {
 .tasks li:first-child {
   padding-top: 12px;
 }
+button{
+ opacity: 0;
+}
 
-.tasks li:hover {
-  button {
-    opacity: 1;
-  }
+.tasks li:hover button{
+ opacity: 1;
 }
 
 .finished {
