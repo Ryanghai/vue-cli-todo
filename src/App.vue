@@ -10,6 +10,8 @@
       />
       <input type="submit" value="+" :disabled="body === ''" @click="addList" />
     </div>
+    <p>残タスク数：{{ finishedRate }}/{{ unfinishiedTodoCount }}個</p>
+    <p>終了率：{{ finishedRate }}%</p>
     <div class="tasks">
       <ul>
         <li v-for="(list, i) in lists" v-bind:key="i">
@@ -30,14 +32,12 @@
 export default {
   data: () => ({
     lists: [],
-    // title: "",
     body: "",
   }),
   methods: {
     addList: function() {
       if (this.body === "") return;
       this.lists.push({ body: this.body, done: false });
-      // this.title = "";
       this.body = "";
     },
     deleteList: function(i) {
@@ -56,7 +56,7 @@ export default {
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap");
 
 body {
-  margin: 0;
+  margin: 0 !important;
 }
 
 #app {
@@ -98,7 +98,7 @@ input[type="submit" i] {
 
 .tasks ul {
   padding: 0;
-  margin: 0 40px;
+  margin: 0 8px;
   list-style-type: none;
 }
 
@@ -114,6 +114,8 @@ input[type="submit" i] {
 
 button {
   opacity: 0;
+  border-radius: 50%;
+  border: 1px solid pink;
 }
 
 .tasks li:hover button {
