@@ -10,7 +10,7 @@
       />
       <input type="submit" value="+" :disabled="body === ''" @click="addList" />
     </div>
-    <p>残タスク数：{{ finishedRate }}/{{ unfinishiedTodoCount }}個</p>
+    <p>残タスク数：{{ finishedRate }}/{{ unfinishedTodoCount }}個</p>
     <p>終了率：{{ finishedRate }}%</p>
     <div class="tasks">
       <ul>
@@ -48,6 +48,19 @@ export default {
       const date = today.getMonth() + 1 + "/" + today.getDate();
       return date;
     },
+  },
+  computed: {
+    // 終了していないタスクの数を返す
+    unfinishedTodoCount() {
+      return this.lists.filter(list => !list.done).length;
+    },
+    // 終了しているタスクの割合を返す
+    finishedRate() {
+      if (!this.lists.length) return 0;
+
+      const finishedTodoCount = this.lists.filter(list => list.done).length;
+      return Math.round((finishedTodoCount / this.lists.length) * 100);
+    }
   },
 };
 </script>
