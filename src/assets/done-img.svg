@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="26" height="26" viewBox="0 0 26 26">
+  <defs>
+    <style>
+      .cls-1, .cls-3 {
+        fill: #fff;
+      }
+
+      .cls-1 {
+        stroke: #707070;
+      }
+
+      .cls-2 {
+        clip-path: url(#clip-path);
+      }
+    </style>
+    <clipPath id="clip-path">
+      <circle id="楕円形_4" data-name="楕円形 4" class="cls-1" cx="13" cy="13" r="13" transform="translate(60 184)"/>
+    </clipPath>
+  </defs>
+  <g id="マスクグループ_2" data-name="マスクグループ 2" class="cls-2" transform="translate(-60 -184)">
+    <path id="checkmark-outline" class="cls-3" d="M10.74,20.667a1.139,1.139,0,0,1-.805-.334L6.029,16.428A1.139,1.139,0,0,1,7.64,14.817l3.045,3.045L19,8.363a1.139,1.139,0,1,1,1.715,1.5L11.6,20.278a1.139,1.139,0,0,1-.819.388Z" transform="translate(59.656 182.68)"/>
+  </g>
+</svg>

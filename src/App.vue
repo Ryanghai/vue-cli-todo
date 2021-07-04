@@ -1,7 +1,20 @@
 <template>
   <div id="app">
-    <h1>{{ today() }} My Todos</h1>
-    <div class="add_task">
+    <div class="container">
+      <div class="left_fixed_content">
+        <div class="left_fixed_buttons">
+          <button
+            class="left_button"
+            v-for="(leftFixedButton, i) in leftFixedButtons"
+            :key="i"
+          >
+            <img class="" :src="leftFixedButton.image" />
+            <span>{{ leftFixedButton.content }}</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="add_task">
       <input
         type="text"
         v-model="body"
@@ -24,7 +37,7 @@
           <button @click="deleteList(i)">×</button>
         </li>
       </ul>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -33,6 +46,13 @@ export default {
   data: () => ({
     lists: JSON.parse(window.localStorage.getItem("lists")) || [],
     body: "",
+    leftFixedButtons: [
+      { content: "All tasks", image: require('/assets/done-image.svg') },
+      { content: "To do", image: require('/assets/lists-image.svg') },
+      { content: "Inprogress", image: require('/assets/lists-image.svg') },
+      { content: "Waiting", image: require('/assets/lists-image.svg') },
+      { content: "Done", image: require('/assets/lists-image.svg') },
+    ],
   }),
   methods: {
     addList: function() {
@@ -45,24 +65,19 @@ export default {
       this.lists.splice(i, 1);
       window.localStorage.setItem("lists", JSON.stringify(this.lists));
     },
-    today() {
-      const today = new Date();
-      const date = today.getMonth() + 1 + "/" + today.getDate();
-      return date;
-    },
   },
   computed: {
     // 終了していないタスクの数を返す
     unfinishedTodoCount() {
-      return this.lists.filter(list => !list.done).length;
+      return this.lists.filter((list) => !list.done).length;
     },
     // 終了しているタスクの割合を返す
     finishedRate() {
       if (!this.lists.length) return 0;
 
-      const finishedTodoCount = this.lists.filter(list => list.done).length;
+      const finishedTodoCount = this.lists.filter((list) => list.done).length;
       return Math.round((finishedTodoCount / this.lists.length) * 100);
-    }
+    },
   },
 };
 </script>
@@ -70,7 +85,16 @@ export default {
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap");
 
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
 body {
+  margin: 0px !important;
+}
+
+/* body {
   margin: 0 !important;
 }
 
@@ -129,8 +153,6 @@ input[type="submit" i] {
 
 button {
   opacity: 0;
-  border-radius: 50%;
-  border: 1px solid pink;
 }
 
 .tasks li:hover button {
@@ -140,5 +162,5 @@ button {
 .finished {
   opacity: 0.5;
   text-decoration-line: line-through;
-}
+} */
 </style>
