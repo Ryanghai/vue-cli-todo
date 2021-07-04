@@ -3,14 +3,15 @@
     <div class="container">
       <div class="left_fixed_content">
         <div class="left_fixed_buttons">
-          <button
-            class="left_button"
-            v-for="(leftFixedButton, i) in leftFixedButtons"
+          <div class="left_button"
+           v-for="(leftFixedButton, i) in leftFixedButtons"
             :key="i"
           >
-            <img class="" :src="leftFixedButton.image" />
-            <span>{{ leftFixedButton.content }}</span>
-          </button>
+            <button>
+              <img class="" :src="leftFixedButton.image" :alt="leftFixedButton.alt" />
+              <span>{{ leftFixedButton.label }}</span>
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -47,11 +48,11 @@ export default {
     lists: JSON.parse(window.localStorage.getItem("lists")) || [],
     body: "",
     leftFixedButtons: [
-      { content: "All tasks", image: require('/assets/done-image.svg') },
-      { content: "To do", image: require('/assets/lists-image.svg') },
-      { content: "Inprogress", image: require('/assets/lists-image.svg') },
-      { content: "Waiting", image: require('/assets/lists-image.svg') },
-      { content: "Done", image: require('/assets/lists-image.svg') },
+      { label: "All tasks", image: require('@/assets/lists-image.svg'), alt: "All tasks"},
+      { label: "To do", image: require('@/assets/done-img.svg'), alt: "To do"},
+      { label: "Inprogress", image: require('@/assets/done-img.svg'), alt: "Inprogress"},
+      { label: "Waiting", image: require('@/assets/done-img.svg'), alt: "Waiting"},
+      { label: "Done", image: require('@/assets/done-img.svg'), alt: "Done"},
     ],
   }),
   methods: {
@@ -83,16 +84,6 @@ export default {
 </script>
 
 <style scoped>
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap");
-
-* {
-  margin: 0px;
-  padding: 0px;
-}
-
-body {
-  margin: 0px !important;
-}
 
 /* body {
   margin: 0 !important;
