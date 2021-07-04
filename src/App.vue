@@ -31,17 +31,19 @@
 <script>
 export default {
   data: () => ({
-    lists: [],
+    lists: JSON.parse(window.localStorage.getItem("lists")) || [],
     body: "",
   }),
   methods: {
     addList: function() {
       if (this.body === "") return;
       this.lists.push({ body: this.body, done: false });
+      window.localStorage.setItem("lists", JSON.stringify(this.lists));
       this.body = "";
     },
     deleteList: function(i) {
       this.lists.splice(i, 1);
+      window.localStorage.setItem("lists", JSON.stringify(this.lists));
     },
     today() {
       const today = new Date();
