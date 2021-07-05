@@ -3,13 +3,19 @@
     <div class="container">
       <div class="left_fixed_content">
         <div class="my-account">
-          <img class="account-icon" src="@/assets/my-icon.png" alt="seif icon">
+          <img
+            class="account-icon"
+            src="@/assets/my-icon.png"
+            alt="seif icon"
+          />
           <span class="account-name">Riyana</span>
         </div>
         <div class="unfinishedTodoCount">
           <p class="unfinished-title">Finished</p>
-          <!-- <p class="unfinished-rate"><span>{{ finishedRate }}</span>%</p> -->
-          <p class="unfinished-rate"><span>77</span>%</p>
+          <p class="unfinished-rate">
+            <span>{{ finishedRate }}</span
+            >%
+          </p>
         </div>
         <div class="left_fixed_buttons">
           <div
@@ -17,18 +23,40 @@
             v-for="(leftFixedButton, i) in leftFixedButtons"
             :key="i"
           >
-            <button class="left_button">
+            <a :href="leftFixedButton.page" class="left_button">
               <div class="left_button_title">
-                <div class="left_button_title_image" :class="leftFixedButton.class">
+                <div
+                  class="left_button_title_image"
+                  :class="leftFixedButton.class"
+                >
                   <img
                     :src="leftFixedButton.image"
                     :alt="leftFixedButton.alt"
                   />
                 </div>
-                <span>{{ leftFixedButton.label }}</span>
+                <p>{{ leftFixedButton.label }}</p>
               </div>
-              
-            </button>
+              <svg
+                class="next-page-arrow"
+                xmlns="http://www.w3.org/2000/svg"
+                width="13.481"
+                height="23.281"
+                viewBox="0 0 13.481 23.281"
+              >
+                <g transform="translate(-1856 -1330)">
+                  <path
+                    class="cls-1"
+                    d="M10.481,11.641a1.5,1.5,0,0,1-1.043-.422L-1.043,1.078a1.5,1.5,0,0,1-.035-2.121,1.5,1.5,0,0,1,2.121-.035L11.524,9.063a1.5,1.5,0,0,1-1.043,2.578Z"
+                    transform="translate(1857.5 1331.5)"
+                  />
+                  <path
+                    class="cls-1"
+                    d="M0,11.641a1.5,1.5,0,0,1-1.078-.457,1.5,1.5,0,0,1,.035-2.121L9.438-1.078a1.5,1.5,0,0,1,2.121.035,1.5,1.5,0,0,1-.035,2.121L1.043,11.219A1.5,1.5,0,0,1,0,11.641Z"
+                    transform="translate(1857.5 1341.64)"
+                  />
+                </g>
+              </svg>
+            </a>
           </div>
         </div>
       </div>
@@ -71,30 +99,35 @@ export default {
         class: "all-task",
         image: require("@/assets/lists-image.svg"),
         alt: "All tasks",
+        page: "#",
       },
       {
         label: "To do",
         class: "to-do",
         image: require("@/assets/todo-image.svg"),
         alt: "To do",
+        page: "#",
       },
       {
         label: "Inprogress",
         class: "in-progress",
         image: require("@/assets/inprogress-img.svg"),
         alt: "Inprogress",
+        page: "#",
       },
       {
         label: "Waiting",
         class: "waiting",
         image: require("@/assets/waiting-img.svg"),
         alt: "Waiting",
+        page: "#",
       },
       {
         label: "Done",
         class: "done",
         image: require("@/assets/done-img.svg"),
         alt: "Done",
+        page: "#",
       },
     ],
   }),
@@ -127,10 +160,8 @@ export default {
 </script>
 
 <style scoped>
-
-
 .container {
-  background-color: #FFF5EE;
+  background-color: #fff5ee;
   width: 100%;
   height: 100vh;
 }
@@ -173,7 +204,7 @@ export default {
 
 .unfinishedTodoCount .unfinished-rate {
   font-size: 40px;
-  padding: 8px  0px 18px 0;
+  padding: 8px 0px 18px 0;
   font-weight: 700;
 }
 
@@ -183,25 +214,57 @@ export default {
   font-weight: bold;
 }
 
+.left_buttons {
+  margin-top: 8px;
+}
+
+.left_buttons a {
+  text-decoration: none;
+}
+
 .left_button {
-  width: 100%;
   text-align: start;
   border: none;
-  background-color: #FFF5EE;
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff5ee;
+  border-radius: 12px;
+  padding: 16px 32px;
+}
+
+.left_button .next-page-arrow {
+  margin-top: 8px;
+}
+
+.left_button .next-page-arrow path {
+  fill: #757575;
+}
+
+/* タスクのタイトルと画像 */
+.left_button_title {
+  display: flex;
+}
+
+.left_button_title p {
+  font-weight: bold;
+  font-size: 28px;
+  margin: auto 0;
+  color: #757575;
 }
 
 .left_button_title_image {
   display: inline-block;
-  background-color: pink;
   border-radius: 50%;
   width: 37px;
   height: 37px;
   text-align: center;
   vertical-align: middle;
+  margin-right: 12px;
 }
 
+/* タスクごとに色変更 */
 .all-task {
-  background-color: #FA9A00;
+  background-color: #fa9a00;
 }
 .all-task img {
   width: 23px;
@@ -210,7 +273,7 @@ export default {
 }
 
 .to-do {
-  background-color: #FABE00;
+  background-color: #fabe00;
 }
 .to-do img {
   width: 37px;
@@ -218,7 +281,7 @@ export default {
 }
 
 .in-progress {
-  background-color: #BF6DEA;
+  background-color: #bf6dea;
 }
 .in-progress img {
   width: 37px;
@@ -226,20 +289,31 @@ export default {
 }
 
 .waiting {
-  background-color: #43BC39;
+  background-color: #43bc39;
 }
 .waiting img {
   width: 36px;
-  height: 42px;
+  height: 38px;
 }
 
 .done {
-  background-color: #E34747;
+  background-color: #e34747;
 }
 .done img {
   width: 34px;
   height: 40px;
 }
 
+/* ---------ここからホバーアニメーション----------- */
+.left_button:hover {
+  background-color: #333130;
+}
 
+.left_button:hover .left_button_title p {
+  color: #fff;
+}
+
+.left_button:hover .next-page-arrow path {
+  fill: #fff;
+}
 </style>
