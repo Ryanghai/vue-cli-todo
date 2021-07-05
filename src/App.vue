@@ -2,19 +2,32 @@
   <div id="app">
     <div class="container">
       <div class="left_fixed_content">
+        <div class="my-account">
+          <img class="account-icon" src="@/assets/my-icon.png" alt="seif icon">
+          <span class="account-name">Riyana</span>
+        </div>
+        <div class="unfinishedTodoCount">
+          <p class="unfinished-title">Finished</p>
+          <!-- <p class="unfinished-rate"><span>{{ finishedRate }}</span>%</p> -->
+          <p class="unfinished-rate"><span>77</span>%</p>
+        </div>
         <div class="left_fixed_buttons">
           <div
-            class="left_button"
+            class="left_buttons"
             v-for="(leftFixedButton, i) in leftFixedButtons"
             :key="i"
           >
-            <button>
-              <img
-                :class="leftFixedButton.class"
-                :src="leftFixedButton.image"
-                :alt="leftFixedButton.alt"
-              />
-              <span>{{ leftFixedButton.label }}</span>
+            <button class="left_button">
+              <div class="left_button_title">
+                <div class="left_button_title_image" :class="leftFixedButton.class">
+                  <img
+                    :src="leftFixedButton.image"
+                    :alt="leftFixedButton.alt"
+                  />
+                </div>
+                <span>{{ leftFixedButton.label }}</span>
+              </div>
+              
             </button>
           </div>
         </div>
@@ -114,73 +127,119 @@ export default {
 </script>
 
 <style scoped>
-/* body {
-  margin: 0 !important;
-}
 
-#app {
-  background-color: #fff5eb;
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  text-align: center;
-}
 
-#app h1 {
-  color: #b2b8a3;
-  text-align: center;
-  font-family: "Roboto", sans-serif;
-  margin-top: 0;
-  padding-top: 40px;
-}
-
-input[type="text" i] {
-  height: 20px;
-  padding: 4px;
-  border: 1px solid #b2b8a3;
-}
-
-input[type="submit" i] {
-  margin-left: 8px;
-  padding: 1px 4px;
-  border-width: 0px;
-  background-color: #b2b8a3;
-  cursor: auto;
-}
-
-.tasks {
-  max-width: 300px;
+.container {
+  background-color: #FFF5EE;
   width: 100%;
-  margin: 40px auto;
-  background-color: white;
+  height: 100vh;
 }
 
-.tasks ul {
-  padding: 0;
-  margin: 0 8px;
-  list-style-type: none;
+.left_fixed_content {
+  padding: 20px 32px 0px 32px;
 }
 
-.tasks li {
+.my-account {
   display: flex;
-  justify-content: space-between;
-  padding-bottom: 12px;
 }
 
-.tasks li:first-child {
-  padding-top: 12px;
+.my-account .account-icon {
+  margin: auto 0;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  border: 2px solid #333130;
 }
 
-button {
-  opacity: 0;
+.my-account .account-name {
+  margin: auto 0 auto 18px;
+  font-weight: bold;
+  color: #757575;
 }
 
-.tasks li:hover button {
-  opacity: 1;
+.unfinishedTodoCount {
+  background-color: #333130;
+  color: #fff;
+  text-align: center;
+  margin: 20px 26px;
+  border-radius: 12px;
 }
 
-.finished {
-  opacity: 0.5;
-  text-decoration-line: line-through;
-} */
+.unfinishedTodoCount .unfinished-title {
+  font-size: 28px;
+  padding-top: 10px;
+  font-weight: bold;
+}
+
+.unfinishedTodoCount .unfinished-rate {
+  font-size: 40px;
+  padding: 8px  0px 18px 0;
+  font-weight: 700;
+}
+
+.unfinishedTodoCount .unfinished-rate span {
+  font-size: 60px;
+  margin-right: 4px;
+  font-weight: bold;
+}
+
+.left_button {
+  width: 100%;
+  text-align: start;
+  border: none;
+  background-color: #FFF5EE;
+}
+
+.left_button_title_image {
+  display: inline-block;
+  background-color: pink;
+  border-radius: 50%;
+  width: 37px;
+  height: 37px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.all-task {
+  background-color: #FA9A00;
+}
+.all-task img {
+  width: 23px;
+  height: 15px;
+  margin-top: 12px;
+}
+
+.to-do {
+  background-color: #FABE00;
+}
+.to-do img {
+  width: 37px;
+  height: 37px;
+}
+
+.in-progress {
+  background-color: #BF6DEA;
+}
+.in-progress img {
+  width: 37px;
+  height: 38px;
+}
+
+.waiting {
+  background-color: #43BC39;
+}
+.waiting img {
+  width: 36px;
+  height: 42px;
+}
+
+.done {
+  background-color: #E34747;
+}
+.done img {
+  width: 34px;
+  height: 40px;
+}
+
+
 </style>
