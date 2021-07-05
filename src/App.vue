@@ -3,12 +3,17 @@
     <div class="container">
       <div class="left_fixed_content">
         <div class="left_fixed_buttons">
-          <div class="left_button"
-           v-for="(leftFixedButton, i) in leftFixedButtons"
+          <div
+            class="left_button"
+            v-for="(leftFixedButton, i) in leftFixedButtons"
             :key="i"
           >
             <button>
-              <img class="" :src="leftFixedButton.image" :alt="leftFixedButton.alt" />
+              <img
+                :class="leftFixedButton.class"
+                :src="leftFixedButton.image"
+                :alt="leftFixedButton.alt"
+              />
               <span>{{ leftFixedButton.label }}</span>
             </button>
           </div>
@@ -48,11 +53,36 @@ export default {
     lists: JSON.parse(window.localStorage.getItem("lists")) || [],
     body: "",
     leftFixedButtons: [
-      { label: "All tasks", image: require('@/assets/lists-image.svg'), alt: "All tasks"},
-      { label: "To do", image: require('@/assets/done-img.svg'), alt: "To do"},
-      { label: "Inprogress", image: require('@/assets/done-img.svg'), alt: "Inprogress"},
-      { label: "Waiting", image: require('@/assets/done-img.svg'), alt: "Waiting"},
-      { label: "Done", image: require('@/assets/done-img.svg'), alt: "Done"},
+      {
+        label: "All tasks",
+        class: "all-task",
+        image: require("@/assets/lists-image.svg"),
+        alt: "All tasks",
+      },
+      {
+        label: "To do",
+        class: "to-do",
+        image: require("@/assets/todo-image.svg"),
+        alt: "To do",
+      },
+      {
+        label: "Inprogress",
+        class: "in-progress",
+        image: require("@/assets/inprogress-img.svg"),
+        alt: "Inprogress",
+      },
+      {
+        label: "Waiting",
+        class: "waiting",
+        image: require("@/assets/waiting-img.svg"),
+        alt: "Waiting",
+      },
+      {
+        label: "Done",
+        class: "done",
+        image: require("@/assets/done-img.svg"),
+        alt: "Done",
+      },
     ],
   }),
   methods: {
@@ -84,7 +114,6 @@ export default {
 </script>
 
 <style scoped>
-
 /* body {
   margin: 0 !important;
 }
