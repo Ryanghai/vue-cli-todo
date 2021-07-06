@@ -104,12 +104,14 @@ export default {
 .all-task-container {
   background-color: #333130;
   height: 100vh;
+  width: 400%;
 }
 
 .tasks {
   display: flex;
   padding-top: 44px;
   overflow: scroll;
+  width: 400%;
 }
 
 .task {
@@ -150,7 +152,7 @@ export default {
 
 .add-task-container {
   background-color: #FFF5EE;
-  position: fixed;
+  position: absolute;
   bottom: 0;
   height: 80px;
   width: 311px;
