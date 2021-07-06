@@ -12,10 +12,8 @@
         </div>
         <div class="unfinishedTodoCount">
           <p class="unfinished-title">Finished</p>
-          <p class="unfinished-rate">
-            <span>{{ finishedRate }}</span
-            >%
-          </p>
+          <!-- <p class="unfinished-rate"><span>{{ finishedRate }}</span>%</p> -->
+          <p class="unfinished-rate"><span>77</span>%</p>
         </div>
         <div class="left_fixed_buttons">
           <div
