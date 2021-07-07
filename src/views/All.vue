@@ -109,7 +109,7 @@ export default {
 .all-task-container {
   background-color: #333130;
   height: 100vh;
-  width: 360%;
+  width: 1350px;
 }
 
 .tasks {

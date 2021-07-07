@@ -80,7 +80,7 @@ export default {
         class: "to-do",
         image: require("@/assets/todo-image.svg"),
         alt: "To do",
-        page: "/",
+        page: "/todo",
       },
       {
         label: "Inprogress",
