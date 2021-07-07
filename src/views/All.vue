@@ -3,7 +3,7 @@
     <div class="tasks">
       <div class="task">
         <div class="task-title">
-          <div class="title-image">
+          <div class="title-image task-list">
             <img src="@/assets/todo-image.svg" alt="todo-image">
           </div>
           <p>To do</p>
@@ -22,21 +22,26 @@
       </div>
       <div class="task">
         <div class="task-title">
-          <div class="title-image">
-            <img src="@/assets/todo-image.svg" alt="todo-image">
+          <div class="title-image inprogress">
+            <img src="@/assets/inprogress-img.svg" alt="todo-image">
           </div>
-          <p>To do</p>
+          <p>Inprogress</p>
         </div>
-        <div class="add-task-container">
-          <div class="add-task">
-            <input type="submit" value="+" :disabled="body === ''" @click="addList" />
-            <input
-              type="text"
-              v-model="body"
-              @keydown.enter="addList"
-              placeholder="タスクを入れる"
-            />
+      </div>
+      <div class="task">
+        <div class="task-title">
+          <div class="title-image waiting">
+            <img src="@/assets/waiting-img.svg" alt="todo-image">
           </div>
+          <p>Waiting</p>
+        </div>
+      </div>
+      <div class="task">
+        <div class="task-title">
+          <div class="title-image done">
+            <img src="@/assets/done-img.svg" alt="todo-image">
+          </div>
+          <p>Done</p>
         </div>
       </div>
     </div>
@@ -104,23 +109,27 @@ export default {
 .all-task-container {
   background-color: #333130;
   height: 100vh;
-  width: 400%;
+  width: 360%;
 }
 
 .tasks {
   display: flex;
   padding-top: 44px;
   overflow: scroll;
-  width: 400%;
+  width: 100%;
 }
 
 .task {
   background-color: #FFF5EE;
   width: 311px;
-  margin-left: 32px;
+  margin-left: 16px;
   height: calc(100vh - 44px);
   border-radius: 12px 12px 0 0;
   overflow-x: scroll;
+}
+
+.task:first-child {
+  margin-left: 32px;
 }
 
 .task-title {
@@ -131,16 +140,42 @@ export default {
 }
 
 .title-image {
-  background-color: #FABE00;
   border-radius: 50%;
   width: 32px;
   height: 32px;
   margin-right: 12px;
 }
 
-.title-image img {
-  width: 29px;
-  height: 29px;
+.task-list {
+  background-color: #fabe00;
+}
+.task-list img {
+  width: 30px;
+  height: 30px;
+}
+
+.inprogress {
+  background-color: #bf6dea;
+}
+.inprogress img {
+  width: 32px;
+  height: 30px;
+}
+
+.waiting {
+  background-color: #43bc39;
+}
+.waiting img {
+  width: 32px;
+  height: 32px;
+}
+
+.done {
+  background-color: #e34747;
+}
+.done img {
+  width: 32px;
+  height: 32px;
 }
 
 .task-title p {
