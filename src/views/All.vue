@@ -1,71 +1,76 @@
 <template>
-  <div class="all-task-container">
-    <div class="tasks">
-      <div class="task">
-        <div class="task-title">
-          <div class="title-image task-list">
-            <img src="@/assets/todo-image.svg" alt="todo-image">
+  <div class="container">
+    <a href="/" class="page-back">
+      <img src="@/assets/back.png" alt="page back button">
+    </a>
+    <div class="all-task-container">
+      <div class="tasks">
+        <div class="task">
+          <div class="task-title">
+            <div class="title-image task-list">
+              <img src="@/assets/todo-image.svg" alt="todo-image">
+            </div>
+            <p>To do</p>
           </div>
-          <p>To do</p>
+          <div class="add-task-container">
+            <div class="add-task">
+              <input type="submit" value="+" :disabled="body === ''" @click="addList" />
+              <input
+                type="text"
+                v-model="body"
+                @keydown.enter="addList"
+                placeholder="タスクを入れる"
+              />
+            </div>
+          </div>
         </div>
-        <div class="add-task-container">
-          <div class="add-task">
-            <input type="submit" value="+" :disabled="body === ''" @click="addList" />
-            <input
-              type="text"
-              v-model="body"
-              @keydown.enter="addList"
-              placeholder="タスクを入れる"
-            />
+        <div class="task">
+          <div class="task-title">
+            <div class="title-image inprogress">
+              <img src="@/assets/inprogress-img.svg" alt="todo-image">
+            </div>
+            <p>Inprogress</p>
+          </div>
+        </div>
+        <div class="task">
+          <div class="task-title">
+            <div class="title-image waiting">
+              <img src="@/assets/waiting-img.svg" alt="todo-image">
+            </div>
+            <p>Waiting</p>
+          </div>
+        </div>
+        <div class="task">
+          <div class="task-title">
+            <div class="title-image done">
+              <img src="@/assets/done-img.svg" alt="todo-image">
+            </div>
+            <p>Done</p>
           </div>
         </div>
       </div>
-      <div class="task">
-        <div class="task-title">
-          <div class="title-image inprogress">
-            <img src="@/assets/inprogress-img.svg" alt="todo-image">
-          </div>
-          <p>Inprogress</p>
-        </div>
+      <!-- <div class="tasks">
+        <ul>
+          <li v-for="(list, i) in lists" v-bind:key="i">
+            <div class="text">
+              <input type="checkbox" v-model="list.done" />
+              <span :class="list.done ? 'finished' : ''">
+                {{ list.body }}
+              </span>
+            </div>
+          </li>
+        </ul>
       </div>
-      <div class="task">
-        <div class="task-title">
-          <div class="title-image waiting">
-            <img src="@/assets/waiting-img.svg" alt="todo-image">
-          </div>
-          <p>Waiting</p>
-        </div>
-      </div>
-      <div class="task">
-        <div class="task-title">
-          <div class="title-image done">
-            <img src="@/assets/done-img.svg" alt="todo-image">
-          </div>
-          <p>Done</p>
-        </div>
-      </div>
+      <div class="add_task">
+        <input
+          type="text"
+          v-model="body"
+          @keydown.enter="addList"
+          placeholder="New Task"
+        />
+        <input type="submit" value="+" :disabled="body === ''" @click="addList" />
+      </div> -->
     </div>
-    <!-- <div class="tasks">
-      <ul>
-        <li v-for="(list, i) in lists" v-bind:key="i">
-          <div class="text">
-            <input type="checkbox" v-model="list.done" />
-            <span :class="list.done ? 'finished' : ''">
-              {{ list.body }}
-            </span>
-          </div>
-        </li>
-      </ul>
-    </div>
-    <div class="add_task">
-      <input
-        type="text"
-        v-model="body"
-        @keydown.enter="addList"
-        placeholder="New Task"
-      />
-      <input type="submit" value="+" :disabled="body === ''" @click="addList" />
-    </div> -->
   </div>
 </template>
 
@@ -110,6 +115,15 @@ export default {
   background-color: #333130;
   height: 100vh;
   width: 1350px;
+}
+
+.page-back {
+  text-align: left;
+}
+.page-back img {
+  position: fixed;
+  left: 16px;
+  top: 12px;
 }
 
 .tasks {
