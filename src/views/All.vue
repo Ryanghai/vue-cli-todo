@@ -12,6 +12,16 @@
             </div>
             <p>To do</p>
           </div>
+          <div class="task-lists">
+            <div class="task-lists-list">
+              <input type="checkbox">
+              <p>一行だとこんな</p>
+            </div>
+            <div class="task-lists-list">
+              <input type="checkbox">
+              <p>二行の時はこんな感じ二行の時はこんな感じ二行の時はこんな感じ</p>
+            </div>
+          </div>
           <div class="add-task-container">
             <div class="add-task">
               <input type="submit" value="+" :disabled="body === ''" @click="addList" />
@@ -111,12 +121,14 @@ export default {
 </script>
 
 <style scoped>
+/* 背景 */
 .all-task-container {
   background-color: #333130;
   height: 100vh;
   width: 1350px;
 }
 
+/* 戻るbtn */
 .page-back {
   text-align: left;
 }
@@ -126,6 +138,7 @@ export default {
   top: 12px;
 }
 
+/* タスクの大枠 */
 .tasks {
   display: flex;
   padding-top: 44px;
@@ -160,6 +173,29 @@ export default {
   margin-right: 12px;
 }
 
+/* タスクの中身 */
+.task-lists-list {
+  display: flex;
+  margin: 12px 6px 0;
+  padding: 14px 8px;
+  border: 1px solid #B5B5B5;
+  border-radius: 12px;
+}
+
+.task-lists-list input[type="checkbox" i] {
+  margin: auto 0;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.task-lists-list p {
+  text-align: left;
+  font-size: 14px;
+  
+}
+
+/* それぞれのタイトルの色、画像変更 */
 .task-list {
   background-color: #fabe00;
 }
@@ -199,6 +235,7 @@ export default {
   color: #757575;
 }
 
+/* タスク追加 */
 .add-task-container {
   background-color: #FFF5EE;
   position: absolute;

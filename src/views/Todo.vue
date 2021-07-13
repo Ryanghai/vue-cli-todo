@@ -54,16 +54,14 @@
 
 .task {
   background-color: #FFF5EE;
-  width: 311px;
-  margin-left: 16px;
+  max-width: 311px;
+  width: 90%;
+  margin: 0 auto;
   height: calc(100vh - 44px);
   border-radius: 12px 12px 0 0;
   overflow-x: scroll;
 }
 
-.task:first-child {
-  margin-left: 32px;
-}
 
 .task-title {
   display: flex;
@@ -99,8 +97,8 @@
   position: absolute;
   bottom: 0;
   height: 80px;
-  width: 311px;
-  box-shadow: #B5B5B5;
+  max-width: 311px;
+  width: 90%;
   box-shadow: 0 -8px 10px -3px #dedede;
   
 }
@@ -109,7 +107,7 @@
   position: relative;
   margin: 16px 4px 16px;
   height: 50px;
-  width: 301px;
+  max-width: 301px;
   border: 1px solid #FABE00;
   border-radius: 12px;
 }
