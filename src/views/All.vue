@@ -227,7 +227,7 @@ input[type="submit" i] {
   position: absolute;
   left: 8px;
   border: none;
-  background-color: none;
+  background-color: #FFF5EE;
   color: #FABE00;
   font-size: 40px;
   cursor: pointer;

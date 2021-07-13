@@ -1,4 +1,8 @@
 <template>
+<div class="container">
+  <a href="/" class="page-back">
+    <img src="@/assets/back.png" alt="page back button">
+  </a>
   <div class="todo-container">
     <div class="tasks">
       <div class="task">
@@ -22,6 +26,7 @@
       </div>
     </div>
   </div>
+</div>
 </template>
 
 <style scoped>
@@ -29,6 +34,15 @@
   background-color: #333130;
   height: 100vh;
   width: 100%;
+}
+
+.page-back {
+  text-align: left;
+}
+.page-back img {
+  position: fixed;
+  left: 16px;
+  top: 12px;
 }
 
 .tasks {
