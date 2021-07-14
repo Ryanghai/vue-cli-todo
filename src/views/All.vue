@@ -21,6 +21,38 @@
               <input type="checkbox">
               <p>二行の時はこんな感じ二行の時はこんな感じ二行の時はこんな感じ</p>
             </div>
+            <div class="task-lists-list">
+              <input type="checkbox">
+              <p>一行だとこんな</p>
+            </div>
+            <div class="task-lists-list">
+              <input type="checkbox">
+              <p>二行の時はこんな感じ二行の時はこんな感じ二行の時はこんな感じ</p>
+            </div>
+            <div class="task-lists-list">
+              <input type="checkbox">
+              <p>一行だとこんな</p>
+            </div>
+            <div class="task-lists-list">
+              <input type="checkbox">
+              <p>二行の時はこんな感じ二行の時はこんな感じ二行の時はこんな感じ</p>
+            </div>
+            <div class="task-lists-list">
+              <input type="checkbox">
+              <p>一行だとこんな</p>
+            </div>
+            <div class="task-lists-list">
+              <input type="checkbox">
+              <p>二行の時はこんな感じ二行の時はこんな感じ二行の時はこんな感じ</p>
+            </div>
+            <div class="task-lists-list">
+              <input type="checkbox">
+              <p>一行だとこんな</p>
+            </div>
+            <div class="task-lists-list">
+              <input type="checkbox">
+              <p>二行の時はこんな感じ二行の時はこんな感じ二行の時はこんな感じ</p>
+            </div>
           </div>
           <div class="add-task-container">
             <div class="add-task">
@@ -40,6 +72,48 @@
               <img src="@/assets/inprogress-img.svg" alt="todo-image">
             </div>
             <p>Inprogress</p>
+          </div>
+          <div class="task-lists">
+            <div class="task-lists-list">
+              <input type="checkbox">
+              <p>一行だとこんな</p>
+            </div>
+            <div class="task-lists-list">
+              <input type="checkbox">
+              <p>二行の時はこんな感じ二行の時はこんな感じ二行の時はこんな感じ</p>
+            </div>
+            <div class="task-lists-list">
+              <input type="checkbox">
+              <p>一行だとこんな</p>
+            </div>
+            <div class="task-lists-list">
+              <input type="checkbox">
+              <p>二行の時はこんな感じ二行の時はこんな感じ二行の時はこんな感じ</p>
+            </div>
+            <div class="task-lists-list">
+              <input type="checkbox">
+              <p>一行だとこんな</p>
+            </div>
+            <div class="task-lists-list">
+              <input type="checkbox">
+              <p>二行の時はこんな感じ二行の時はこんな感じ二行の時はこんな感じ</p>
+            </div>
+            <div class="task-lists-list">
+              <input type="checkbox">
+              <p>一行だとこんな</p>
+            </div>
+            <div class="task-lists-list">
+              <input type="checkbox">
+              <p>二行の時はこんな感じ二行の時はこんな感じ二行の時はこんな感じ</p>
+            </div>
+            <div class="task-lists-list">
+              <input type="checkbox">
+              <p>一行だとこんな</p>
+            </div>
+            <div class="task-lists-list">
+              <input type="checkbox">
+              <p>二行の時はこんな感じ二行の時はこんな感じ二行の時はこんな感じ</p>
+            </div>
           </div>
         </div>
         <div class="task">
@@ -160,10 +234,14 @@ export default {
 }
 
 .task-title {
+  background-color: #FFF5EE;
   display: flex;
   justify-content: center;
   padding: 14px 0 12px 0;
   border-bottom: 2px solid #B5B5B5;
+  border-radius: 12px 12px 0 0 ;
+  position: absolute;
+  width: 311px;
 }
 
 .title-image {
@@ -182,6 +260,10 @@ export default {
   border-radius: 12px;
 }
 
+.task-lists-list:first-child {
+  margin-top: 72px;
+}
+
 .task-lists-list input[type="checkbox" i] {
   margin: auto 0;
   width: 20px;
@@ -192,7 +274,8 @@ export default {
 .task-lists-list p {
   text-align: left;
   font-size: 14px;
-  
+  width: 90%;
+  max-width: 260px;
 }
 
 /* それぞれのタイトルの色、画像変更 */
