@@ -14,8 +14,12 @@
           </div>
           <div class="task-lists">
             <div class="task-lists-list">
-              <input type="checkbox">
-              <p>一行だとこんな</p>
+              <input type="checkbox" name="checkbox[]" class="checkbox-input">
+              <p class="checkbox-parts">一行だとこんな</p>
+            </div>
+            <div class="task-lists-list">
+              <input type="checkbox" name="checkbox[]" class="checkbox-input">
+              <p class="checkbox-parts">二行の時はこんな感じ二行の時はこんな感じ二行の時はこんな感じ</p>
             </div>
             <div class="task-lists-list">
               <input type="checkbox">
@@ -269,6 +273,45 @@ export default {
   width: 20px;
   height: 20px;
   margin-right: 10px;
+}
+
+.checkbox-input{
+  display: none;
+}
+
+.checkbox-parts{
+  padding-left: 30px;
+  position:relative;
+  margin-right: 20px;
+}
+
+.checkbox-parts::before{
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  margin-top: -14px;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #fabe00;
+  background-color: white;
+  border-radius: 50%;
+}
+.checkbox-input:checked + .checkbox-parts{
+  color: #d01137;
+}
+.checkbox-input:checked + .checkbox-parts::after{
+  content: "";
+  display: block;
+  position: absolute;
+  top: -5px;
+  left: 5px;
+  width: 7px;
+  height: 14px;
+  transform: rotate(40deg);
+  border-bottom: 3px solid #d01137;
+  border-right: 3px solid #d01137;
 }
 
 .task-lists-list p {
