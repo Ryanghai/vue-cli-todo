@@ -290,7 +290,7 @@ export default {
   display: block;
   position: absolute;
   top: 50%;
-  margin-top: -14px;
+  margin-top: -13px;
   left: 0;
   width: 20px;
   height: 20px;
