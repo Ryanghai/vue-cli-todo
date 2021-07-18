@@ -14,16 +14,21 @@
           </div>
           <div class="task-lists">
             <div class="task-lists-list">
-              <input type="checkbox" name="checkbox[]" class="checkbox-input">
-              <p class="checkbox-parts">一行だとこんな</p>
+              <label>
+                <input class="checkbox-input" type="checkbox" />
+                <p class="checkbox-parts">一行だとこんな</p>
+              </label>
             </div>
             <div class="task-lists-list">
-              <input type="checkbox" name="checkbox[]" class="checkbox-input">
-              <p class="checkbox-parts">二行の時はこんな感じ二行の時はこんな感じ二行の時はこんな感じ</p>
+              <label>
+                <input type="checkbox" name="checkbox[]" class="checkbox-input">
+                <p class="checkbox-parts">二行の時はこんな感じ二行の時はこんな感じ二行の時はこんな感じ</p>
+              </label>            
             </div>
             <div class="task-lists-list">
               <input type="checkbox">
               <p>二行の時はこんな感じ二行の時はこんな感じ二行の時はこんな感じ</p>
+              
             </div>
             <div class="task-lists-list">
               <input type="checkbox">
@@ -275,43 +280,41 @@ export default {
   margin-right: 10px;
 }
 
-.checkbox-input{
+.checkbox-input {
   display: none;
 }
-
-.checkbox-parts{
-  padding-left: 30px;
-  position:relative;
+.checkbox-parts {
+  padding-left: 20px;
+  position: relative;
   margin-right: 20px;
 }
-
-.checkbox-parts::before{
+.checkbox-parts::before {
   content: "";
   display: block;
   position: absolute;
   top: 50%;
-  margin-top: -13px;
+  margin-top: -10px;
   left: 0;
-  width: 20px;
-  height: 20px;
-  border: 2px solid #fabe00;
-  background-color: white;
+  width: 15px;
+  height: 15px;
+  border: 1px solid #999;
   border-radius: 50%;
 }
-.checkbox-input:checked + .checkbox-parts{
-  color: #d01137;
+.checkbox-input:checked + .checkbox-parts {
+  color: #fabe00;
 }
-.checkbox-input:checked + .checkbox-parts::after{
+.checkbox-input:checked + .checkbox-parts::after {
   content: "";
   display: block;
   position: absolute;
-  top: -5px;
+  top: 50%;
+  margin-top: -15px;
   left: 5px;
   width: 7px;
   height: 14px;
   transform: rotate(40deg);
-  border-bottom: 3px solid #d01137;
-  border-right: 3px solid #d01137;
+  border-bottom: 3px solid #fabe00;
+  border-right: 3px solid #fabe00;
 }
 
 .task-lists-list p {
