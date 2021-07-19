@@ -13,54 +13,11 @@
             <p>To do</p>
           </div>
           <div class="task-lists">
-            <div class="task-lists-list">
+            <div class="task-lists-list" v-for="(todotask, i) in todotasks" :key="i">
               <label>
                 <input class="checkbox-input" type="checkbox" />
-                <p class="checkbox-parts">一行だとこんな</p>
+                <p class="checkbox-parts">{{ todotask.label }}</p>
               </label>
-            </div>
-            <div class="task-lists-list">
-              <label>
-                <input type="checkbox" name="checkbox[]" class="checkbox-input">
-                <p class="checkbox-parts">二行の時はこんな感じ二行の時はこんな感じ二行の時はこんな感じ</p>
-              </label>            
-            </div>
-            <div class="task-lists-list">
-              <input type="checkbox">
-              <p>二行の時はこんな感じ二行の時はこんな感じ二行の時はこんな感じ</p>
-              
-            </div>
-            <div class="task-lists-list">
-              <input type="checkbox">
-              <p>一行だとこんな</p>
-            </div>
-            <div class="task-lists-list">
-              <input type="checkbox">
-              <p>二行の時はこんな感じ二行の時はこんな感じ二行の時はこんな感じ</p>
-            </div>
-            <div class="task-lists-list">
-              <input type="checkbox">
-              <p>一行だとこんな</p>
-            </div>
-            <div class="task-lists-list">
-              <input type="checkbox">
-              <p>二行の時はこんな感じ二行の時はこんな感じ二行の時はこんな感じ</p>
-            </div>
-            <div class="task-lists-list">
-              <input type="checkbox">
-              <p>一行だとこんな</p>
-            </div>
-            <div class="task-lists-list">
-              <input type="checkbox">
-              <p>二行の時はこんな感じ二行の時はこんな感じ二行の時はこんな感じ</p>
-            </div>
-            <div class="task-lists-list">
-              <input type="checkbox">
-              <p>一行だとこんな</p>
-            </div>
-            <div class="task-lists-list">
-              <input type="checkbox">
-              <p>二行の時はこんな感じ二行の時はこんな感じ二行の時はこんな感じ</p>
             </div>
           </div>
           <div class="add-task-container">
@@ -83,45 +40,11 @@
             <p>Inprogress</p>
           </div>
           <div class="task-lists">
-            <div class="task-lists-list">
-              <input type="checkbox">
-              <p>一行だとこんな</p>
-            </div>
-            <div class="task-lists-list">
-              <input type="checkbox">
-              <p>二行の時はこんな感じ二行の時はこんな感じ二行の時はこんな感じ</p>
-            </div>
-            <div class="task-lists-list">
-              <input type="checkbox">
-              <p>一行だとこんな</p>
-            </div>
-            <div class="task-lists-list">
-              <input type="checkbox">
-              <p>二行の時はこんな感じ二行の時はこんな感じ二行の時はこんな感じ</p>
-            </div>
-            <div class="task-lists-list">
-              <input type="checkbox">
-              <p>一行だとこんな</p>
-            </div>
-            <div class="task-lists-list">
-              <input type="checkbox">
-              <p>二行の時はこんな感じ二行の時はこんな感じ二行の時はこんな感じ</p>
-            </div>
-            <div class="task-lists-list">
-              <input type="checkbox">
-              <p>一行だとこんな</p>
-            </div>
-            <div class="task-lists-list">
-              <input type="checkbox">
-              <p>二行の時はこんな感じ二行の時はこんな感じ二行の時はこんな感じ</p>
-            </div>
-            <div class="task-lists-list">
-              <input type="checkbox">
-              <p>一行だとこんな</p>
-            </div>
-            <div class="task-lists-list">
-              <input type="checkbox">
-              <p>二行の時はこんな感じ二行の時はこんな感じ二行の時はこんな感じ</p>
+            <div class="task-lists-list inprogress-list" v-for="(inprogresstask, i) in inprogresstasks" :key="i">
+              <label>
+                <input class="checkbox-input" type="checkbox" />
+                <p class="checkbox-parts">{{ inprogresstask.label }}</p>
+              </label>
             </div>
           </div>
         </div>
@@ -132,6 +55,14 @@
             </div>
             <p>Waiting</p>
           </div>
+          <div class="task-lists">
+            <div class="task-lists-list waitingtask" v-for="(waitingtask, i) in waitingtasks" :key="i">
+              <label>
+                <input class="checkbox-input" type="checkbox" />
+                <p class="checkbox-parts">{{ waitingtask.label }}</p>
+              </label>
+            </div>
+          </div>
         </div>
         <div class="task">
           <div class="task-title">
@@ -139,6 +70,14 @@
               <img src="@/assets/done-img.svg" alt="todo-image">
             </div>
             <p>Done</p>
+          </div>
+          <div class="task-lists">
+            <div class="task-lists-list donetasks" v-for="(donetask, i) in donetasks" :key="i">
+              <label>
+                <input class="checkbox-input" type="checkbox" />
+                <p class="checkbox-parts">{{ donetask.label }}</p>
+              </label>
+            </div>
           </div>
         </div>
       </div>
@@ -172,6 +111,38 @@ export default {
   data: () => ({
     lists: JSON.parse(window.localStorage.getItem("lists")) || [],
     body: "",
+    todotasks: [
+      {
+        label: "こんな感じ"
+      },
+      {
+        label: "二行こんな感じ二行こんな感じ二行こんな感じ二行こんな感じ二行こんな感じ"
+      },
+    ],
+    inprogresstasks: [
+      {
+        label: "こんな感じ"
+      },
+      {
+        label: "二行こんな感じ二行こんな感じ二行こんな感じ二行こんな感じ二行こんな感じ"
+      },
+    ],
+    waitingtasks: [
+      {
+        label: "こんな感じ"
+      },
+      {
+        label: "二行こんな感じ二行こんな感じ二行こんな感じ二行こんな感じ二行こんな感じ"
+      },
+    ],
+    donetasks: [
+      {
+        label: "こんな感じ"
+      },
+      {
+        label: "二行こんな感じ二行こんな感じ二行こんな感じ二行こんな感じ二行こんな感じ"
+      },
+    ],
   }),
   methods: {
     addList: function() {
@@ -284,7 +255,7 @@ export default {
   display: none;
 }
 .checkbox-parts {
-  padding-left: 20px;
+  padding-left: 24px;
   position: relative;
   margin-right: 20px;
 }
@@ -297,11 +268,9 @@ export default {
   left: 0;
   width: 15px;
   height: 15px;
-  border: 1px solid #999;
+  background-color: white;
+  border: 1px solid #fabe00;
   border-radius: 50%;
-}
-.checkbox-input:checked + .checkbox-parts {
-  color: #fabe00;
 }
 .checkbox-input:checked + .checkbox-parts::after {
   content: "";
@@ -315,6 +284,33 @@ export default {
   transform: rotate(40deg);
   border-bottom: 3px solid #fabe00;
   border-right: 3px solid #fabe00;
+}
+
+.inprogress-list .checkbox-parts::before {
+  border: 1px solid #bf6dea;
+}
+.inprogress-list .checkbox-input:checked + .checkbox-parts::after {
+  border-bottom: 3px solid #bf6dea;
+  border-right: 3px solid #bf6dea;
+}
+
+.waitingtask .checkbox-parts::before {
+  border: 1px solid #43bc39;
+}
+.waitingtask .checkbox-input:checked + .checkbox-parts::after {
+  border-bottom: 3px solid #43bc39;
+  border-right: 3px solid #43bc39;
+}
+
+.donetasks .checkbox-parts::before {
+  border: 1px solid #e34747;
+}
+.donetasks .checkbox-input:checked + .checkbox-parts {
+  text-decoration: line-through;
+}
+.donetasks .checkbox-input:checked + .checkbox-parts::after {
+  border-bottom: 3px solid #e34747;
+  border-right: 3px solid #e34747;
 }
 
 .task-lists-list p {
