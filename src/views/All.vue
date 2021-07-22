@@ -18,6 +18,9 @@
                 <input class="checkbox-input" type="checkbox" />
                 <p class="checkbox-parts">{{ todotask.label }}</p>
               </label>
+              <a href="#">
+                <img class="to-memo" src="@/assets/to-memo.svg" alt="">
+              </a>
             </div>
           </div>
           <div class="add-task-container">
@@ -45,6 +48,9 @@
                 <input class="checkbox-input" type="checkbox" />
                 <p class="checkbox-parts">{{ inprogresstask.label }}</p>
               </label>
+              <a href="#">
+                <img class="to-memo" src="@/assets/to-memo.svg" alt="">
+              </a>
             </div>
           </div>
         </div>
@@ -61,6 +67,9 @@
                 <input class="checkbox-input" type="checkbox" />
                 <p class="checkbox-parts">{{ waitingtask.label }}</p>
               </label>
+              <a href="#">
+                <img class="to-memo" src="@/assets/to-memo.svg" alt="">
+              </a>
             </div>
           </div>
         </div>
@@ -77,6 +86,9 @@
                 <input class="checkbox-input" type="checkbox" />
                 <p class="checkbox-parts">{{ donetask.label }}</p>
               </label>
+              <a href="#">
+                <img class="trash" src="@/assets/trash.svg" alt="">
+              </a>
             </div>
           </div>
         </div>
@@ -107,42 +119,19 @@
 </template>
 
 <script>
+import { todoTasks } from '../data/todotasks.js'
+import { inprogressTasks } from '../data/inprogresstasks.js'
+import { waitingTasks } from '../data/waitingtasks.js'
+import { doneTasks } from '../data/donetasks.js'
+
 export default {
   data: () => ({
     lists: JSON.parse(window.localStorage.getItem("lists")) || [],
     body: "",
-    todotasks: [
-      {
-        label: "こんな感じ"
-      },
-      {
-        label: "二行こんな感じ二行こんな感じ二行こんな感じ二行こんな感じ二行こんな感じ"
-      },
-    ],
-    inprogresstasks: [
-      {
-        label: "こんな感じ"
-      },
-      {
-        label: "二行こんな感じ二行こんな感じ二行こんな感じ二行こんな感じ二行こんな感じ"
-      },
-    ],
-    waitingtasks: [
-      {
-        label: "こんな感じ"
-      },
-      {
-        label: "二行こんな感じ二行こんな感じ二行こんな感じ二行こんな感じ二行こんな感じ"
-      },
-    ],
-    donetasks: [
-      {
-        label: "こんな感じ"
-      },
-      {
-        label: "二行こんな感じ二行こんな感じ二行こんな感じ二行こんな感じ二行こんな感じ"
-      },
-    ],
+    todotasks: todoTasks,
+    inprogresstasks: inprogressTasks,
+    waitingtasks: waitingTasks,
+    donetasks: doneTasks,
   }),
   methods: {
     addList: function() {
@@ -152,25 +141,25 @@ export default {
       this.body = "";
     },
   },
-  computed: {
-    // 終了していないタスクの数を返す
-    unfinishedTodoCount() {
-      return (
-        this.lists.filter((list) => !list.done).length +
-        this.lists.filter((list) => list.done).length
-      );
-    },
-    finishedTodoCount() {
-      return this.lists.filter((list) => list.done).length;
-    },
-    // 終了しているタスクの割合を返す
-    finishedRate() {
-      if (!this.lists.length) return 0;
+  // computed: {
+  //   // 終了していないタスクの数を返す
+  //   unfinishedTodoCount() {
+  //     return (
+  //       this.lists.filter((list) => !list.done).length +
+  //       this.lists.filter((list) => list.done).length
+  //     );
+  //   },
+  //   finishedTodoCount() {
+  //     return this.lists.filter((list) => list.done).length;
+  //   },
+  //   // 終了しているタスクの割合を返す
+  //   finishedRate() {
+  //     if (!this.lists.length) return 0;
 
-      const finishedTodoCount = this.lists.filter((list) => list.done).length;
-      return Math.round((finishedTodoCount / this.lists.length) * 100);
-    },
-  },
+  //     const finishedTodoCount = this.lists.filter((list) => list.done).length;
+  //     return Math.round((finishedTodoCount / this.lists.length) * 100);
+  //   },
+  // },
 };
 </script>
 
@@ -244,6 +233,23 @@ export default {
   margin-top: 72px;
 }
 
+.task-lists-list label {
+  width: 100%;
+  display: flex;
+}
+
+.task-lists-list .to-memo {
+  width: 10px;
+  height: 10px;
+  margin: auto 4px;
+}
+.task-lists-list .trash {
+  width: 15px;
+  height: 15px;
+  margin: auto 0px;
+  opacity: 1;
+}
+
 .task-lists-list input[type="checkbox" i] {
   margin: auto 0;
   width: 20px;
@@ -257,7 +263,6 @@ export default {
 .checkbox-parts {
   padding-left: 24px;
   position: relative;
-  margin-right: 20px;
 }
 .checkbox-parts::before {
   content: "";
