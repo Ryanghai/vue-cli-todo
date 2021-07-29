@@ -94,14 +94,14 @@ export default {
         class: "waiting",
         image: require("@/assets/waiting-img.svg"),
         alt: "Waiting",
-        page: "/",
+        page: "/waiting",
       },
       {
         label: "Done",
         class: "done",
         image: require("@/assets/done-img.svg"),
         alt: "Done",
-        page: "/",
+        page: "/done",
       },
     ],
   }),
@@ -291,4 +291,3 @@ export default {
   fill: #fff;
 }
 </style>
-
