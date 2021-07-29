@@ -171,6 +171,7 @@ export default {
 .all-task-container {
   height: 100vh;
   width: 1350px;
+  background-color: #333130;
 }
 
 /* 戻るbtn */

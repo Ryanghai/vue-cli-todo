@@ -87,7 +87,7 @@ export default {
         class: "in-progress",
         image: require("@/assets/inprogress-img.svg"),
         alt: "Inprogress",
-        page: "/",
+        page: "/inprogress",
       },
       {
         label: "Waiting",
