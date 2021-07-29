@@ -96,12 +96,15 @@ export default {
 
 
 .task-title {
+  background-color: #FFF5EE;
   display: flex;
   justify-content: center;
   padding: 14px 0 12px 0;
   border-bottom: 2px solid #B5B5B5;
+  border-radius: 12px 12px 0 0 ;
+  position: fixed;
+  width: 311px;
 }
-
 .title-image {
   border-radius: 50%;
   width: 32px;
