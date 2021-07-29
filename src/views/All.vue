@@ -86,9 +86,9 @@
                 <input class="checkbox-input" type="checkbox" />
                 <p class="checkbox-parts">{{ donetask.label }}</p>
               </label>
-              <a href="#">
+              <button @click="deleteList(i)">
                 <img class="trash" src="@/assets/trash.svg" alt="">
-              </a>
+              </button>
             </div>
           </div>
         </div>
@@ -140,6 +140,9 @@ export default {
       window.localStorage.setItem("lists", JSON.stringify(this.lists));
       this.body = "";
     },
+    deleteList(i) {
+      this.todos.splice(i, 1);
+    }
   },
   // computed: {
   //   // 終了していないタスクの数を返す
@@ -166,7 +169,6 @@ export default {
 <style scoped>
 /* 背景 */
 .all-task-container {
-  background-color: #333130;
   height: 100vh;
   width: 1350px;
 }
@@ -409,6 +411,11 @@ input[type="text" i] {
   background-color: #FFF5EE;
   font-size: 14px;
   height: 20px;
+}
+
+.donetasks button {
+  border: none;
+  background-color: #FFF5EE;
 }
 
 </style>
