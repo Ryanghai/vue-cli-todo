@@ -104,6 +104,7 @@ export default {
   border-radius: 12px 12px 0 0 ;
   position: fixed;
   width: 311px;
+  z-index: 10;
 }
 .title-image {
   border-radius: 50%;

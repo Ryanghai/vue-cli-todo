@@ -38,7 +38,7 @@
         <div class="task">
           <div class="task-title">
             <div class="title-image inprogress">
-              <img src="@/assets/inprogress-img.svg" alt="todo-image">
+              <img src="@/assets/inprogress-img.svg" alt="inprogress-image">
             </div>
             <p>Inprogress</p>
           </div>
