@@ -18,7 +18,7 @@
                 <input class="checkbox-input" type="checkbox" />
                 <p class="checkbox-parts">{{ todotask.label }}</p>
               </label>
-              <a href="#">
+              <a href="/SPTodoMemo">
                 <img class="to-memo" src="@/assets/to-memo.svg" alt="">
               </a>
             </div>

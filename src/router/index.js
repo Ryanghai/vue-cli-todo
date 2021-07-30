@@ -6,6 +6,7 @@ import Todo from "../views/Todo.vue";
 import Inprogress from "../views/Inprogress.vue";
 import Waiting from "../views/Waiting.vue";
 import Done from "../views/Done.vue";
+import SPTodoMemo from "../views/SPTodoMemo.vue";
 
 Vue.use(VueRouter);
 
@@ -39,6 +40,11 @@ const routes = [
     path: "/done",
     name: "Done",
     component: Done,
+  },
+  {
+    path: "/SPTodoMemo",
+    name: "SPTodoMemo",
+    component: SPTodoMemo,
   },
 ];
 
