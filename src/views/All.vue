@@ -214,6 +214,7 @@ export default {
   border-radius: 12px 12px 0 0 ;
   position: absolute;
   width: 311px;
+  z-index: 10;
 }
 
 .title-image {
@@ -366,6 +367,7 @@ export default {
   font-weight: bold;
   font-size: 24px;
   color: #757575;
+
 }
 
 /* タスク追加 */

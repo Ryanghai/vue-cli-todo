@@ -13,10 +13,10 @@
           <p>Inprogress</p>
         </div>
         <div class="task-lists">
-          <div class="task-lists-list" v-for="(todotask, i) in todotasks" :key="i">
+          <div class="task-lists-list" v-for="(inprogresstask, i) in inprogresstasks" :key="i">
             <label>
               <input class="checkbox-input" type="checkbox" />
-              <p class="checkbox-parts">{{ todotask.label }}</p>
+              <p class="checkbox-parts">{{ inprogresstask.label }}</p>
             </label>
             <a href="#">
               <img class="to-memo" src="@/assets/to-memo.svg" alt="">
@@ -30,22 +30,14 @@
 </template>
 
 <script>
-import { todoTasks } from '../data/todotasks.js'
+import { inprogressTasks } from '../data/inprogresstasks.js'
 
 export default {
   data: () => ({
     lists: JSON.parse(window.localStorage.getItem("lists")) || [],
     body: "",
-    todotasks: todoTasks,
+    inprogresstasks: inprogressTasks,
   }),
-  methods: {
-    addList: function() {
-      if (this.body === "") return;
-      this.lists.push({ body: this.body, done: false });
-      window.localStorage.setItem("lists", JSON.stringify(this.lists));
-      this.body = "";
-    },
-  },
 }
 </script>
 
@@ -93,8 +85,8 @@ export default {
   border-radius: 12px 12px 0 0 ;
   position: fixed;
   width: 311px;
+  z-index: 10;
 }
-
 .title-image {
   border-radius: 50%;
   width: 32px;
