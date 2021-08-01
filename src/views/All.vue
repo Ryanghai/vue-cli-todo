@@ -18,7 +18,7 @@
                 <input class="checkbox-input" type="checkbox" />
                 <p class="checkbox-parts">{{ todotask.label }}</p>
               </label>
-              <router-link to="/SPTodoMemo">
+              <router-link to="/sp-todo-memo">
                 <img class="to-memo" src="@/assets/to-memo.svg" alt="">
               </router-link>
             </div>
@@ -48,9 +48,9 @@
                 <input class="checkbox-input" type="checkbox" />
                 <p class="checkbox-parts">{{ inprogresstask.label }}</p>
               </label>
-              <a href="#">
+              <router-link to="/sp-inprogress-memo">
                 <img class="to-memo" src="@/assets/to-memo.svg" alt="">
-              </a>
+              </router-link>
             </div>
           </div>
         </div>
@@ -210,7 +210,7 @@ export default {
   display: flex;
   justify-content: center;
   padding: 14px 0 12px 0;
-  border-bottom: 2px solid #B5B5B5;
+  border-bottom: 1px solid #B5B5B5;
   border-radius: 12px 12px 0 0 ;
   position: absolute;
   width: 311px;

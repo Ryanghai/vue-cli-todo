@@ -1,6 +1,6 @@
 <template>
 <div class="container">
-  <router-link to="/todo" class="page-back">
+  <router-link to="/inprogress" class="page-back">
     <img src="@/assets/back.png" alt="page back button">
   </router-link>
   <div class="todo-container">
@@ -8,7 +8,7 @@
       <div class="task">
         <div class="task-title">
           <div class="title-image task-list">
-            <img src="@/assets/todo-image.svg" alt="todo-image">
+            <img src="@/assets/inprogress-img.svg" alt="todo-image">
           </div>
           <p>ここにタスクの内容</p>
         </div>
@@ -85,7 +85,7 @@ export default {
 }
 
 .task-list {
-  background-color: #fabe00;
+  background-color: #bf6dea;
 }
 .task-list img {
   width: 30px;

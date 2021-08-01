@@ -7,6 +7,7 @@ import Inprogress from "../views/Inprogress.vue";
 import Waiting from "../views/Waiting.vue";
 import Done from "../views/Done.vue";
 import SPTodoMemo from "../views/SPTodoMemo.vue";
+import SPInprogressMemo from "../views/SPInprogressMemo.vue";
 
 Vue.use(VueRouter);
 
@@ -42,9 +43,14 @@ const routes = [
     component: Done,
   },
   {
-    path: "/SPTodoMemo",
+    path: "/sp-todo-memo",
     name: "SPTodoMemo",
     component: SPTodoMemo,
+  },
+  {
+    path: "/sp-inprogress-memo",
+    name: "SPInprogressMemo",
+    component: SPInprogressMemo,
   },
 ];
 

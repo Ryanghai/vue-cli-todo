@@ -18,9 +18,9 @@
               <input class="checkbox-input" type="checkbox" />
               <p class="checkbox-parts">{{ todotask.label }}</p>
             </label>
-            <a href="#">
+            <router-link to="/sp-todo-memo">
               <img class="to-memo" src="@/assets/to-memo.svg" alt="">
-            </a>
+            </router-link>
           </div>
         </div>
         <div class="add-task-container">
@@ -100,7 +100,7 @@ export default {
   display: flex;
   justify-content: center;
   padding: 14px 0 12px 0;
-  border-bottom: 2px solid #B5B5B5;
+  border-bottom: 1px solid #B5B5B5;
   border-radius: 12px 12px 0 0 ;
   position: fixed;
   width: 311px;
