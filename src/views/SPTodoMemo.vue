@@ -12,6 +12,9 @@
           </div>
           <p>ここにタスクの内容</p>
         </div>
+        <div class="todo-memo">
+          <textarea class="todo-mamo-area"></textarea>
+        </div>
       </div>
     </div>
   </div>
@@ -94,6 +97,21 @@ export default {
   margin: auto 0;
   font-size: 16px;
   color: #757575;
+}
+
+/* textarea */
+.todo-memo {
+  margin-top: 59px;
+}
+
+.todo-mamo-area {
+  background-color: #FFF5EE;
+  width: 100%;
+  height: calc(100vh - 103px);
+  box-sizing: border-box;
+  outline: none;
+  border: 0px;
+  padding: 21px 10px;
 }
 
 </style>
