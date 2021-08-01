@@ -18,9 +18,9 @@
                 <input class="checkbox-input" type="checkbox" />
                 <p class="checkbox-parts">{{ todotask.label }}</p>
               </label>
-              <a href="/SPTodoMemo">
+              <router-link to="/SPTodoMemo">
                 <img class="to-memo" src="@/assets/to-memo.svg" alt="">
-              </a>
+              </router-link>
             </div>
           </div>
           <div class="add-task-container">
