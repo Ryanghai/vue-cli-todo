@@ -8,6 +8,7 @@ import Waiting from "../views/Waiting.vue";
 import Done from "../views/Done.vue";
 import SPTodoMemo from "../views/SPTodoMemo.vue";
 import SPInprogressMemo from "../views/SPInprogressMemo.vue";
+import SPWaitingMemo from "../views/SPWaitingMemo.vue";
 
 Vue.use(VueRouter);
 
@@ -51,6 +52,11 @@ const routes = [
     path: "/sp-inprogress-memo",
     name: "SPInprogressMemo",
     component: SPInprogressMemo,
+  },
+  {
+    path: "/sp-waiting-memo",
+    name: "SPWaitingMemo",
+    component: SPWaitingMemo,
   },
 ];
 

@@ -67,9 +67,9 @@
                 <input class="checkbox-input" type="checkbox" />
                 <p class="checkbox-parts">{{ waitingtask.label }}</p>
               </label>
-              <a href="#">
+              <router-link to="/sp-waiting-memo">
                 <img class="to-memo" src="@/assets/to-memo.svg" alt="">
-              </a>
+              </router-link>
             </div>
           </div>
         </div>
