@@ -36,6 +36,19 @@
         </div>
       </div>
     </div>
+    <div class="tasks sp-show">
+      <div class="task sp-show">
+        <div class="memo-title">
+          <div class="title-image task-list">
+            <img src="@/assets/todo-image.svg" alt="todo-image">
+          </div>
+          <p>ここにタスクの内容</p>
+        </div>
+        <div class="todo-memo">
+          <textarea class="todo-mamo-area"></textarea>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 </template>
@@ -66,6 +79,11 @@ export default {
   background-color: #333130;
   height: 100vh;
   width: 100%;
+  display: inline-block;
+}
+
+.sp-show {
+  display: none;
 }
 
 .page-back {
@@ -248,6 +266,59 @@ input[type="text" i] {
   transform: rotate(40deg);
   border-bottom: 3px solid #fabe00;
   border-right: 3px solid #fabe00;
+}
+
+@media screen and (min-width: 960px) {
+  .todo-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .sp-show {
+    display: block;
+  }
+
+  .task {
+    margin: 0 0 0 0;
+  }
+
+  /* textarea */
+  .todo-memo {
+    margin-top: 59px;
+  }
+
+  .tasks {
+    width: 36%;
+  }
+
+  .todo-mamo-area {
+    background-color: #FFF5EE;
+    width: 100%;
+    height: calc(100vh - 103px);
+    outline: none;
+    border: 0px;
+    padding: 10px 10px;
+    box-sizing: border-box;
+  }
+
+  .memo-title {
+    background-color: #FFF5EE;
+    display: flex;
+    justify-content: center;
+    padding: 14px 0 12px 0;
+    border-bottom: 1px solid #B5B5B5;
+    border-radius: 12px 12px 0 0 ;
+    position: fixed;
+    width: 311px;
+    z-index: 10;
+  }
+
+  .memo-title p {
+    margin: auto 0;
+    font-size: 16px;
+    color: #757575;
+  }
+
 }
 
 
