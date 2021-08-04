@@ -18,7 +18,10 @@
                 <input class="checkbox-input" type="checkbox" />
                 <p class="checkbox-parts">{{ todotask.label }}</p>
               </label>
-              <router-link to="/sp-todo-memo">
+              <router-link to="/sp-todo-memo" class="pc-hide">
+                <img class="to-memo" src="@/assets/to-memo.svg" alt="">
+              </router-link>
+              <router-link to="/todo" class="pc-show">
                 <img class="to-memo" src="@/assets/to-memo.svg" alt="">
               </router-link>
             </div>
@@ -48,7 +51,10 @@
                 <input class="checkbox-input" type="checkbox" />
                 <p class="checkbox-parts">{{ inprogresstask.label }}</p>
               </label>
-              <router-link to="/sp-inprogress-memo">
+              <router-link to="/sp-inprogress-memo" class="pc-hide">
+                <img class="to-memo" src="@/assets/to-memo.svg" alt="">
+              </router-link>
+              <router-link to="/inprogress" class="pc-show">
                 <img class="to-memo" src="@/assets/to-memo.svg" alt="">
               </router-link>
             </div>
@@ -67,7 +73,10 @@
                 <input class="checkbox-input" type="checkbox" />
                 <p class="checkbox-parts">{{ waitingtask.label }}</p>
               </label>
-              <router-link to="/sp-waiting-memo">
+              <router-link to="/sp-waiting-memo" class="pc-hide">
+                <img class="to-memo" src="@/assets/to-memo.svg" alt="">
+              </router-link>
+              <router-link to="/waiting" class="pc-show">
                 <img class="to-memo" src="@/assets/to-memo.svg" alt="">
               </router-link>
             </div>
@@ -172,6 +181,10 @@ export default {
   height: 100vh;
   width: 1350px;
   background-color: #333130;
+}
+
+.pc-show {
+  display: none;
 }
 
 /* 戻るbtn */
@@ -419,6 +432,16 @@ input[type="text" i] {
 .donetasks button {
   border: none;
   background-color: #FFF5EE;
+}
+
+@media screen and (min-width: 960px) {
+  .pc-hide {
+    display: none;
+  }
+
+  .pc-show {
+    display: block;
+  }
 }
 
 </style>
