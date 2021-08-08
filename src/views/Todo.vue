@@ -36,8 +36,8 @@
         </div>
       </div>
     </div>
-    <div class="tasks sp-show">
-      <div class="task sp-show">
+    <div class="tasks-memo">
+      <div class="task-memo sp-show">
         <div class="memo-title">
           <div class="title-image task-list">
             <img src="@/assets/todo-image.svg" alt="todo-image">
@@ -45,7 +45,7 @@
           <p>ここにタスクの内容</p>
         </div>
         <div class="todo-memo">
-          <textarea class="todo-mamo-area"></textarea>
+          <textarea class="todo-memo-area"></textarea>
         </div>
       </div>
     </div>
@@ -279,7 +279,7 @@ input[type="text" i] {
   }
 
   .task {
-    margin: 0 0 0 0;
+    margin: 0 auto ;
   }
 
   /* textarea */
@@ -289,9 +289,25 @@ input[type="text" i] {
 
   .tasks {
     width: 36%;
+    justify-content: center;
   }
 
-  .todo-mamo-area {
+  .tasks-memo {
+    padding-top: 44px;
+    padding-bottom: 20px;
+    overflow: scroll;
+    width: 60%;
+  }
+
+  .task-memo {
+    background-color: #FFF5EE;
+    margin: 0 auto;
+    height: calc(100vh - 64px);
+    border-radius: 12px;
+    overflow-x: scroll;
+  }
+
+  .todo-memo-area {
     background-color: #FFF5EE;
     width: 100%;
     height: calc(100vh - 103px);
@@ -299,6 +315,8 @@ input[type="text" i] {
     border: 0px;
     padding: 10px 10px;
     box-sizing: border-box;
+    font-size: 17px;
+    color: #2c3e50;
   }
 
   .memo-title {
@@ -309,7 +327,7 @@ input[type="text" i] {
     border-bottom: 1px solid #B5B5B5;
     border-radius: 12px 12px 0 0 ;
     position: fixed;
-    width: 311px;
+    width: 60%;
     z-index: 10;
   }
 
