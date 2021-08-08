@@ -137,7 +137,7 @@ export default {
 .container {
   background-color: #fff5ee;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .left_fixed_content {

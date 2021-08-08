@@ -178,9 +178,10 @@ export default {
 <style scoped>
 /* 背景 */
 .all-task-container {
-  height: 100vh;
+  min-height: 100vh;
   width: 1350px;
   background-color: #333130;
+  margin: 0 auto;
 }
 
 .pc-show {
