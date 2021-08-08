@@ -1,56 +1,59 @@
 <template>
-<div class="container">
-  <a href="/" class="page-back">
-    <img src="@/assets/back.png" alt="page back button">
-  </a>
-  <div class="todo-container">
-    <div class="tasks">
-      <div class="task">
-        <div class="task-title">
-          <div class="title-image task-list">
-            <img src="@/assets/todo-image.svg" alt="todo-image">
+  <div class="container">
+    <a href="/" class="page-back">
+      <img src="@/assets/back.png" alt="page back button">
+    </a>
+    <div class="todo-container">
+      <div class="tasks">
+        <div class="task">
+          <div class="task-title">
+            <div class="title-image task-list">
+              <img src="@/assets/todo-image.svg" alt="todo-image">
+            </div>
+            <p>To do</p>
           </div>
-          <p>To do</p>
-        </div>
-        <div class="task-lists">
-          <div class="task-lists-list" v-for="(todotask, i) in todotasks" :key="i">
-            <label>
-              <input class="checkbox-input" type="checkbox" />
-              <p class="checkbox-parts">{{ todotask.label }}</p>
-            </label>
-            <router-link to="/sp-todo-memo">
-              <img class="to-memo" src="@/assets/to-memo.svg" alt="">
-            </router-link>
+          <div class="task-lists">
+            <div class="task-lists-list" v-for="(todotask, i) in todotasks" :key="i">
+              <label>
+                <input class="checkbox-input" type="checkbox" />
+                <p class="checkbox-parts">{{ todotask.label }}</p>
+              </label>
+              <router-link to="/sp-todo-memo" class="pc-hide">
+                <img class="to-memo" src="@/assets/to-memo.svg" alt="">
+              </router-link>
+              <router-link to="#" class="pc-show">
+                <img class="to-memo" src="@/assets/to-memo.svg" alt="">
+              </router-link>
+            </div>
           </div>
-        </div>
-        <div class="add-task-container">
-          <div class="add-task">
-            <input type="submit" value="+" :disabled="body === ''" @click="addList" />
-            <input
-              type="text"
-              v-model="body"
-              @keydown.enter="addList"
-              placeholder="タスクを入れる"
-            />
+          <div class="add-task-container">
+            <div class="add-task">
+              <input type="submit" value="+" :disabled="body === ''" @click="addList" />
+              <input
+                type="text"
+                v-model="body"
+                @keydown.enter="addList"
+                placeholder="タスクを入れる"
+              />
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="tasks-memo">
-      <div class="task-memo sp-show">
-        <div class="memo-title">
-          <div class="title-image task-list">
-            <img src="@/assets/todo-image.svg" alt="todo-image">
+      <div class="tasks-memo">
+        <div class="task-memo sp-show">
+          <div class="memo-title">
+            <div class="title-image task-list">
+              <img src="@/assets/todo-image.svg" alt="todo-image">
+            </div>
+            <p>ここにタスクの内容</p>
           </div>
-          <p>ここにタスクの内容</p>
-        </div>
-        <div class="todo-memo">
-          <textarea class="todo-memo-area"></textarea>
+          <div class="todo-memo">
+            <textarea class="todo-memo-area"></textarea>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 </template>
 
 <script>
@@ -82,7 +85,7 @@ export default {
   display: inline-block;
 }
 
-.sp-show {
+.sp-show, .pc-show {
   display: none;
 }
 
@@ -274,7 +277,11 @@ input[type="text" i] {
     justify-content: center;
   }
 
-  .sp-show {
+  .pc-hide {
+    display: none;
+  }
+
+  .sp-show, .pc-show {
     display: block;
   }
 
@@ -336,8 +343,5 @@ input[type="text" i] {
     font-size: 16px;
     color: #757575;
   }
-
 }
-
-
 </style>
