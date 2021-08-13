@@ -102,27 +102,6 @@
           </div>
         </div>
       </div>
-      <!-- <div class="tasks">
-        <ul>
-          <li v-for="(list, i) in lists" v-bind:key="i">
-            <div class="text">
-              <input type="checkbox" v-model="list.done" />
-              <span :class="list.done ? 'finished' : ''">
-                {{ list.body }}
-              </span>
-            </div>
-          </li>
-        </ul>
-      </div>
-      <div class="add_task">
-        <input
-          type="text"
-          v-model="body"
-          @keydown.enter="addList"
-          placeholder="New Task"
-        />
-        <input type="submit" value="+" :disabled="body === ''" @click="addList" />
-      </div> -->
     </div>
   </div>
 </template>
@@ -153,25 +132,6 @@ export default {
       this.todos.splice(i, 1);
     }
   },
-  // computed: {
-  //   // 終了していないタスクの数を返す
-  //   unfinishedTodoCount() {
-  //     return (
-  //       this.lists.filter((list) => !list.done).length +
-  //       this.lists.filter((list) => list.done).length
-  //     );
-  //   },
-  //   finishedTodoCount() {
-  //     return this.lists.filter((list) => list.done).length;
-  //   },
-  //   // 終了しているタスクの割合を返す
-  //   finishedRate() {
-  //     if (!this.lists.length) return 0;
-
-  //     const finishedTodoCount = this.lists.filter((list) => list.done).length;
-  //     return Math.round((finishedTodoCount / this.lists.length) * 100);
-  //   },
-  // },
 };
 </script>
 
