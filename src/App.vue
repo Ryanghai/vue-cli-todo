@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <PCSidebar/>
     <router-view/>
   </div>
 </template>
