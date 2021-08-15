@@ -5,6 +5,16 @@
   </div>
 </template>
 
+<script>
+import PCSidebar from "./views/PCSidebar.vue";
+
+export default {
+  components: {
+    PCSidebar,
+  },
+};
+</script>
+
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
